@@ -17,7 +17,7 @@
         <span style="padding-right: 60px;">Content</span><i class="fas fa-times"></i>
       </div>
       <div class="menu-btn">
-        <i class="fas fa-bars"></i>
+        <span style="padding-right: 60px;">Content</span><i class="fas fa-bars"></i>
       </div>
       <div class="menu">
         <div class="item"><a href="#Summary"><i class="fas fa-desktop"></i><span class="holder">Summary</span></a></div>
@@ -34,14 +34,7 @@
         </div>
         <div class="item"><a href="#Deployment"><i class="fas fa-th"></i><span class="holder">Deployment</span></a></div>
         <div class="item"><a href="#Result"><i class="fas fa-poll" style="font-size: 20px;"></i><span class="holder">Result</span></a></div>
-        <!-- <div class="item">
-          <a class="sub-btn clickable"><i class="fas fa-cogs"></i><span class="holder">Settings</span><i class="fas fa-angle-right dropdown"></i></a>
-          <div class="sub-menu">
-            <a href="#" class="sub-item">Sub Item 01</a>
-            <a href="#" class="sub-item">Sub Item 02</a>
-          </div>
-        </div>
-        <div class="item"><a href="#"><i class="fas fa-info-circle"></i><span class="holder">About</span></a></div> -->
+        
       </div>
     </div>
     <section class="main">
@@ -203,7 +196,7 @@
         <h2 id="subheading">
           Deployment
         </h2>
-        <img src="https://lh3.googleusercontent.com/proxy/Qjtm1ny5Oho-wpT8ca6oNVrl3tnhB23rT1ISY20IVJ-qH2fbHy-UoM4PH8HrwlKEWPm_mFETNL53GF4YO9ACT-k69q3G2tI1rQ" height="205" width="300" style="padding-left: 20px; padding-bottom: 5px;  float:left;"/><br><br>
+        <img src="http://anupjadhav.com/images/cloud-deployment.jpg" height="205" width="300" style="padding-left: 20px; padding-bottom: 5px;  float:left;"/><br><br>
         <p> The product was deployed using Amazon cloud services. For institutes wanting to operate on local servers, the product can be adjusted to their needs
         </p>
         <p>To secure users' authentication Oauth2 and JWT were applied. Plenty of other security features is applied to prevent browsers from caching sensitive data of the users.
@@ -214,15 +207,15 @@
             <div class="line"></div>
       <div id="Result" style="display: inline-block;">
         <h2 id="subheading">
-         Result & Maintenance
+         Result
         </h2>
-        <p>   <img src="cats.png" height="340" style="float:right; padding-left: 10px;"/><br>The app integrates a semester-wise calendar, daily attendance, and leave. Teachers can punch in the attendance of the student as well as their own. Hence the time and paper-consuming methods of marking attendance are eliminated.
+        <p>   <img src="cats.png" height="340" style="float:right; padding-left: 10px;"/><br>The app integrates a semester-wise calendar, daily attendance, and leave. Teachers can punch in the attendance of the student as well as their own. Result is that the time and paper-consuming methods of marking attendance are eliminated.
         </p>
-        <p> Activities and subjects will be allotted a particular span and time based on their nature.</p>
+        <p> Activities and subjects are allotted a particular span and time based on their nature.</p>
         <p>
-          The timetable management system is a unanimous requirement for planning class timings in school. The system can be deployed to schedule a new class, cancel an existing class, and making other changes to a timetable. It is simple and saves time and energy.
+          The timetable management system is a unanimous requirement for planning class timings in school. The system is deployed to schedule a new class, cancel an existing class, and making other changes to a timetable. It is simple and saves time and energy.
           </p>
-          <p>Time table management will help you schedule practical and theory classes with suitable timings thus providing you a quality timetable, improving productivity and efficiency.
+          <p>Time table management will helped in scheduling practical and theory classes with suitable timings thus providing you a quality timetable, improving productivity and efficiency.
          
           </p>
       </div>
@@ -281,17 +274,18 @@
         $('.close-btn').css("display", "none");
         $('.item a').css("margin-left","179px");
         $('.sub-btn').off('click');
-  
+        var x = 0;
         
   
         //jquery for expand and collapse the sidebar
-        $('.menu-btn').click(function(){
+        $('.menu-btn .fas').click(function(){
           $('.side-bar').addClass('active');
           $('.main').addClass('modmain');
           $('.menu-btn').css("display", "none");
           $('.close-btn').css("display", "block");
-          $('.ta-footer').css("margin-left","250px")
-          $('footer').css("margin-left","250px")
+          $('.ta-footer').css("margin-left","250px");
+          $('footer').css("margin-left","250px");
+          x=1;
           $('.sub-btn').on('click',function(){
             $(this).next('.sub-menu').slideToggle();
             $(this).find('.dropdown').toggleClass('rotate');
@@ -301,25 +295,30 @@
           $('.dropdown').css("display", "block");
         });
   
-        // $('.menu').mouseover(function(){
-        //   $('.side-bar').addClass('active');
-        //   $('.main').addClass('modmain');
-        //   // $('.menu-btn').css("display", "none");
-        //   // $('.close-btn').css("display", "block");
-        //   $('.sub-btn').on('click',function(){
-        //     $(this).next('.sub-menu').slideToggle();
-        //     $(this).find('.dropdown').toggleClass('rotate');
-        //   });
-        //   $('.item a span').removeClass('holder');
-        //   $('.item a').css("margin","0px")
-        //   $('.dropdown').css("display", "block");
-        // });
+        $('.menu').mouseover(function(){
+          if (x==0) {
+            $('.side-bar').addClass('active');
+            $('.main').addClass('modmain');
+            // $('.menu-btn').css("display", "none");
+            // $('.close-btn').css("display", "block");
+            $('.ta-footer').css("margin-left","250px");
+            $('footer').css("margin-left","250px");
+            $('.sub-btn').on('click',function(){
+              $(this).next('.sub-menu').slideToggle();
+              $(this).find('.dropdown').toggleClass('rotate');
+            });
+            $('.item a span').removeClass('holder');
+            $('.item a').css("margin","0px")
+            $('.dropdown').css("display", "block");
+          }
+        });
   
-        $('.close-btn').click(function(){
+        $('.close-btn .fas').click(function(){
           $('.side-bar').removeClass('active');
           $('.main').removeClass('modmain');
           $('.sub-menu').slideUp();
           $('.sub-btn').off('click');
+          x=0;
           $('.ta-footer').css("margin-left","60px")
           $('footer').css("margin-left","60px")
           $('.menu-btn').css("display", "block");
@@ -328,17 +327,23 @@
           $('.item a').css("margin-left","179px");
           $('.dropdown').css("display", "none");
         });
-        // $('.menu').mouseout(function(){
-        //   $('.side-bar').removeClass('active');
-        //   $('.main').removeClass('modmain');
-        //   $('.sub-menu').slideUp();
-        //   $('.sub-btn').off('click');
-        //   // $('.menu-btn').css("display", "block");
-        //   // $('.close-btn').css("display", "none");
-        //   $('.item a span').addClass('holder');
-        //   $('.item a').css("margin-left","179px");
-        //   $('.dropdown').css("display", "none");
-        // });
+        $('.side-bar').mouseout(function(){
+          if (x==0) {
+            $('.side-bar').removeClass('active');
+            $('.main').removeClass('modmain');
+            if($('.item a').css("margin-left") == "179px"){
+              $('.sub-menu').slideUp();
+            }            
+            $('.sub-btn').off('click');
+            $('.ta-footer').css("margin-left","60px")
+            $('footer').css("margin-left","60px")
+            // $('.menu-btn').css("display", "block");
+            // $('.close-btn').css("display", "none");
+            $('.item a span').addClass('holder');
+            $('.item a').css("margin-left","179px");
+            $('.dropdown').css("display", "none");
+          }           
+        });
       });
       </script>
   </body>
